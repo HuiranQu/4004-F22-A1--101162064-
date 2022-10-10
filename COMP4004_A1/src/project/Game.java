@@ -154,4 +154,16 @@ public class Game implements Serializable {
             return 500;
         return 0;
     }
+
+    public int scoreCandD(int[] dieRoll) {
+        int count = 0;
+        int score = 0;
+        for (int i =0;i<dieRoll.length;i++){
+            if (dieRoll[i] == 1 || dieRoll[i] == 2){           //whether a die is coin or diamond
+                count++;
+            }
+        }
+        score = 100*count;
+        return score;
+    }
 }
