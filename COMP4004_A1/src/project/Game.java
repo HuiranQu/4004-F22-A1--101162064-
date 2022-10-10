@@ -47,4 +47,28 @@ public class Game implements Serializable {
         }
         return false;
     }
+
+    public int scoreSet(int[] dieRoll) {
+        int sc = 0;
+        if (isOfAKind(3, dieRoll)) {
+            sc = sc+100;
+        }
+        if (isOfAKind(4,dieRoll)){
+            sc = sc+200;
+        }
+
+        if (isOfAKind(5,dieRoll)){
+            sc = sc + 500;
+        }
+        if (isOfAKind(6,dieRoll)){
+            sc = sc + 1000;
+        }
+        if ((isOfAKind(7,dieRoll))){
+            sc = sc + 2000;
+        }
+        if (isOfAKind(8,dieRoll)){
+            sc = sc + 4000;
+        }
+        return sc;
+    }
 }

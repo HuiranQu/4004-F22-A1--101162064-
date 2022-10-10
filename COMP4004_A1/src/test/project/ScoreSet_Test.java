@@ -36,5 +36,4 @@ class ScoreSet_Test {
         Game game = new Game();
         Assertions.assertEquals(300,game.scoreSet(die3));
     }
-    
 }
