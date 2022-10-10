@@ -42,7 +42,7 @@ public class Game implements Serializable {
             }
         }
         Collection<Integer> val = dict.values();
-        if (Collections.max(val) == x  && Collections.max(val) > 2) {
+        if (val.contains(x)  && Collections.max(val) > 2) {
             return true;
         }
         return false;

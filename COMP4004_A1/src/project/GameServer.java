@@ -1,3 +1,4 @@
+package project;
 import project.Config;
 import project.ServerInfo;
 
