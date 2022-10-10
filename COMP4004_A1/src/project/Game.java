@@ -14,4 +14,21 @@ public class Game implements Serializable {
         }
         return die;
     }
+
+    public int[] rerollDice(int[] dieRoll, int i) {
+        dieRoll[i] = (int) (Math.random() * 6 + 1);
+        return dieRoll;
+    }
+    
+    public int[] reRollKeep(int[] dieRoll, String[] keep) {
+        ArrayList<Integer> rolls = new ArrayList<Integer>();
+        for (String s : keep) {
+            int rem = Integer.parseInt(s) - 1;
+            rolls.add(rem);
+        }
+        for (int s : rolls) {
+            dieRoll = rerollDice(dieRoll, (s));
+        }
+        return dieRoll;
+    }
 }
