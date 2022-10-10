@@ -148,4 +148,10 @@ public class Game implements Serializable {
         }
         return false;
     }
+
+    public int scoreFullchest(int[] dieRoll) {
+        if (isFullchest(dieRoll))
+            return 500;
+        return 0;
+    }
 }
