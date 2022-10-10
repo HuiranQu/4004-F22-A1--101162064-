@@ -21,4 +21,11 @@ public class Player implements Serializable{
 
     Player[] players = new Player[3];
     Boolean inTestMode = false;
+
+
+    public static void main(String args[]) {
+
+
+    }
+
 }
