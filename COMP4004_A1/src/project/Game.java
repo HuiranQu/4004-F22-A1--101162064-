@@ -174,4 +174,11 @@ public class Game implements Serializable {
             return pl[2];
         return temp;
     }
+    public void printDieRoll(int[] dieRoll) {
+        System.out.println(" ___    ___    ___    ___    ___    ___    ___    ___ ");
+        System.out.println("| " + dieRoll[0] + " |  | " + dieRoll[1] + " |  | " + dieRoll[2] + " |  | " + dieRoll[3]
+                + " |  | " + dieRoll[4] +" |  | " + dieRoll[5] + " |  | " + dieRoll[6] +" |  | " + dieRoll[7] + " | ");
+        System.out.println("|___|  |___|  |___|  |___|  |___|  |___|  |___|  |___|");
+
+    }
 }
