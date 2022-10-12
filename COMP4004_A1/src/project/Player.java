@@ -176,6 +176,17 @@ public class Player implements Serializable{
         }
 
     }
+    public int[] getScoreSheet() {
+        return scoreSheet;
+    }
+
+    public void setScoreSheet(int cat, int score) {
+        this.scoreSheet[cat] = score;
+    }
+
+    public void setScoreSheet(int[] ss) {
+        this.scoreSheet = ss;
+    }
     public Player(String n) {
         name = n;
         for (int i = 0; i < scoreSheet.length; i++) {
