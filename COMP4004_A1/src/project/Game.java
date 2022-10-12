@@ -174,6 +174,18 @@ public class Game implements Serializable {
             return pl[2];
         return temp;
     }
+
+    public String getFortune(){
+        Random rand = new Random();
+        int n = rand.nextInt(35);
+        List<String> Fortune = new ArrayList<>(
+                List.of("Chest","Chest","Chest","Chest","Sorceress","Sorceress","Sorceress","Sorceress","Captain","Captain"
+                        ,"Captain","Captain","Monkey&Parrot","Monkey&Parrot","Monkey&Parrot","Monkey&Parrot","Diamond","Diamond","Diamond"
+                        ,"Diamond","Coin","Coin","Coin","Coin","2Skulls","2Skulls","1Skull","1Skull","1Skull","2Swords(300pts)","2Swords(300pts)"
+                        ,"3Swords(500 pts)","3Swords(500pts)","4Swords(1000 pts)","4Swords(1000 pts)"));
+        return Fortune.get(n);
+    }
+
     public void printDieRoll(int[] dieRoll) {
         System.out.println(" ___    ___    ___    ___    ___    ___    ___    ___ ");
         System.out.println("| " + dieRoll[0] + " |  | " + dieRoll[1] + " |  | " + dieRoll[2] + " |  | " + dieRoll[3]
