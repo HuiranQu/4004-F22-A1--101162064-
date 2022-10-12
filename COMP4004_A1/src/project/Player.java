@@ -176,7 +176,12 @@ public class Player implements Serializable{
         }
 
     }
-
+    public Player(String n) {
+        name = n;
+        for (int i = 0; i < scoreSheet.length; i++) {
+            scoreSheet[i] = -1;
+        }
+    }
     public static void main(String args[]) {
 
 
