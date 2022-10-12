@@ -23,7 +23,23 @@ public class Player implements Serializable{
     Boolean inTestMode = false;
 
 
+    public int getUpperScore() {
+        int count = 0;
+        for (int i = 0; i < 6; i++) {
+            if (this.getScoreSheet()[i] >= 0)
+                count += this.scoreSheet[i];
+        }
+        return count;
+    }
 
+    public int getLowerScore() {
+        int count = 0;
+        for (int i = 6; i < 13; i++) {
+            if (this.getScoreSheet()[i] >= 0)
+                count += this.scoreSheet[i];
+        }
+        return count;
+    }
 
 
 
