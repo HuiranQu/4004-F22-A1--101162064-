@@ -41,8 +41,19 @@ public class Player implements Serializable{
         return count;
     }
 
+    public int getScore() {
+        int sc = getLowerScore() + getUpperScore();
+        sc += scoreSheet[13]+scoreSheet[14];
+        return sc;
+    }
 
 
+
+
+
+
+
+    
     // client
     private class Client {
         Socket socket;
