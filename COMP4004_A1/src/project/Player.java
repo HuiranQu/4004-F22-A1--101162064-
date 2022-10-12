@@ -193,6 +193,9 @@ public class Player implements Serializable{
             scoreSheet[i] = -1;
         }
     }
+    public Player getPlayer() {
+        return this;
+    }
     public static void main(String args[]) {
 
 
