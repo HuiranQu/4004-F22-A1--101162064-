@@ -166,4 +166,12 @@ public class Game implements Serializable {
         score = 100*count;
         return score;
     }
+    public Player getWinner(Player[] pl) {
+        Player temp = pl[1];
+        if (pl[0].getScore() >= pl[1].getScore())
+            temp = pl[0];
+        if (pl[2].getScore() >= temp.getScore())
+            return pl[2];
+        return temp;
+    }
 }
