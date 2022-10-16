@@ -16,6 +16,3 @@ class Player_moreRound_4Skull_Test {
         Assertions.assertEquals(200,pl.getScore());
     }
 }
-
-
-}
