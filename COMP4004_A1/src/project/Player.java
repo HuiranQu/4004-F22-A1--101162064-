@@ -95,6 +95,14 @@ public class Player implements Serializable{
                         game.printDieRoll(dieRoll);
                     }
                 }
+                int r = 0;
+                if (act == 2) {
+                    System.out.println("Where do you want write the score in the scoresheet? (0~14)");
+                    r = myObj.nextInt();
+                    setScoreSheet(scoreRound(r, dieRoll, ID));
+                    r = -1;
+                    stop = 1;
+                }
             }
         }
         System.out.println("This turn ends");
