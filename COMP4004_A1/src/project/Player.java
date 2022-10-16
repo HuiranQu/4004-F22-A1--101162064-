@@ -57,9 +57,10 @@ public class Player implements Serializable{
         System.out.println("");
         System.out.println("The Fortune card you have is: " + ID);
         System.out.println("");
-        while (stop == 0){
+        while (stop == 0) {
             int skull = 0;
-            for (int i = 0;i<dieRoll.length;i++){
+            int reroll = 1;
+            for (int i = 0; i < dieRoll.length; i++) {
                 if (dieRoll[i] == 6) {
                     skull++;
                     //System.out.println("dice"+dieRoll[i]);
@@ -71,6 +72,29 @@ public class Player implements Serializable{
                 stop = 1;
                 System.out.println("roll with 3 skull dice.");
                 break;
+            }
+            if (skull != 3) {
+                System.out.println("Select an action: ");
+                if (count < 100) {
+                    System.out.println("(1) Choose dice number to roll again");
+                }
+                System.out.println("(2) Score this round");
+                int act = myObj.nextInt();
+                if (act == 1 && count < 100) {
+                    System.out.println("Select the die to re-roll: (1,2...) ");
+
+                    String[] die = (myObj.next()).replaceAll("\\s", "").split(",");
+                    if (die.length <= 1) {                               //must use at least two dice,
+                        System.out.println("Must roll at least two dices");
+                        continue;
+                    }
+                    if (reroll == 1) {
+                        dieRoll = game.reRollKeep(dieRoll, die);
+                        count++;
+                        System.out.println("New Roll: ");
+                        game.printDieRoll(dieRoll);
+                    }
+                }
             }
         }
         System.out.println("This turn ends");
