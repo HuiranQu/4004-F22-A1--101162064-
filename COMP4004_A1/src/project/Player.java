@@ -43,11 +43,41 @@ public class Player implements Serializable{
 
     public int getScore() {
         int sc = getLowerScore() + getUpperScore();
-        sc += scoreSheet[13]+scoreSheet[14];
+        sc += scoreSheet[13]+scoreSheet[14]+2;
         return sc;
     }
 
+    public int[] playRound(int[] dieRoll,String ID) {
+        Scanner myObj = new Scanner(System.in);
+        int count = 1;
+        int stop = 0;
+        int[] store = new int[8];
+        game.printDieRoll(dieRoll);
+        System.out.println("1 = coin, 2 = Diamond, 3 = Monkey, 4 = Parrot, 5 = Sword, 6 = Skull");
+        System.out.println("");
+        System.out.println("The Fortune card you have is: " + ID);
+        System.out.println("");
+        while (stop == 0){
+            int skull = 0;
+            for (int i = 0;i<dieRoll.length;i++){
+                if (dieRoll[i] == 6) {
+                    skull++;
+                    //System.out.println("dice"+dieRoll[i]);
+                    //System.out.println("Skull"+skull);j
 
+                }
+            }
+            if (skull == 3 && count == 1) {             //first roll with 3 skull dices.
+                stop = 1;
+                System.out.println("roll with 3 skull dice.");
+                break;
+            }
+        }
+
+
+        System.out.println("This turn ends");
+        return this.scoreSheet;
+    }
 
 
 
