@@ -132,9 +132,15 @@ public class Player implements Serializable{
                 }
             }
         }
+        if (ID == "1Skull"){
+            skull = skull + 1;
+        }
         totalscore = game.scoreSet(dieRoll)+game.scoreCandD(dieRoll)+Full;
         if (ID == "Captain"){
             totalscore = 2*totalscore;
+        }
+        if(skull > 2){
+            totalscore = 0;
         }
         setScoreSheet(r,totalscore);
         return getScoreSheet();
