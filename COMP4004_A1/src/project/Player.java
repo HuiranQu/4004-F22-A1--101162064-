@@ -112,12 +112,17 @@ public class Player implements Serializable{
     public int[] scoreRound(int r, int[] dieRoll,String ID) {
         int totalscore = 0;
         int skull = 0;
+        int Full  = 0;
+        Full = game.scoreFullchest(dieRoll);
         for (int i = 0;i<dieRoll.length;i++){
             if (dieRoll[i] == 6){
                 skull++;
             }
         }
-        totalscore = game.scoreSet(dieRoll)+game.scoreCandD(dieRoll)+game.scoreFullchest(dieRoll);
+        if (ID == "Coin"){                    //coin F card
+            dieRoll[8] = 1;
+        }
+        totalscore = game.scoreSet(dieRoll)+game.scoreCandD(dieRoll)+Full;
         setScoreSheet(r,totalscore);
         return getScoreSheet();
     }
