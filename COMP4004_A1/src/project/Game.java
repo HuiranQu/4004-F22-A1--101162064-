@@ -82,7 +82,7 @@ public class Game implements Serializable {
         int getScore = 0;
         int j = 0;
         int[] Non_CandD_dice = new int[8];
-        for (int i =0;i<dieRoll.length;i++){
+        for (int i =0;i<8;i++){
             if (dieRoll[i] == 1 || dieRoll[i] == 2){
                 getScore++;
                 num_CandD++;

@@ -125,6 +125,13 @@ public class Player implements Serializable{
         if (ID == "Diamond"){                //Diamond F card
             dieRoll[8] = 2;
         }
+        if (ID == "Monkey&Parrot"){                //transform every monkey into parrot.
+            for (int i= 0;i<dieRoll.length;i++){
+                if (dieRoll[i] == 3){
+                    dieRoll[i] = 4;
+                }
+            }
+        }
         totalscore = game.scoreSet(dieRoll)+game.scoreCandD(dieRoll)+Full;
         setScoreSheet(r,totalscore);
         return getScoreSheet();
