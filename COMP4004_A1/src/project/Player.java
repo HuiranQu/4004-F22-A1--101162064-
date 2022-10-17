@@ -122,6 +122,9 @@ public class Player implements Serializable{
         if (ID == "Coin"){                    //coin F card
             dieRoll[8] = 1;
         }
+        if (ID == "Diamond"){                //Diamond F card
+            dieRoll[8] = 2;
+        }
         totalscore = game.scoreSet(dieRoll)+game.scoreCandD(dieRoll)+Full;
         setScoreSheet(r,totalscore);
         return getScoreSheet();
