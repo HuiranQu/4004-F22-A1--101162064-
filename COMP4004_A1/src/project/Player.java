@@ -169,6 +169,19 @@ public class Player implements Serializable{
                 totalscore = totalscore + 500;
             }
         }
+        if ((ID == "4Swords(1000 pts)")){
+            int sword = 0;
+            for (int i = 0;i<dieRoll.length;i++){
+                if (dieRoll[i] == 5){
+                    sword++;
+                }
+            }
+            if (sword < 4){                                     //lose in sea battle or die with 3 or more skulls both lose points.
+                totalscore = -1000;
+            }else{
+                totalscore = totalscore + 1000;
+            }
+        }
         setScoreSheet(r,totalscore);
         return getScoreSheet();
     }
