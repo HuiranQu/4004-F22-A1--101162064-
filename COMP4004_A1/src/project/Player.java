@@ -26,8 +26,7 @@ public class Player implements Serializable{
     public int getUpperScore() {
         int count = 0;
         for (int i = 0; i < 6; i++) {
-            if (this.getScoreSheet()[i] >= 0)
-                count += this.scoreSheet[i];
+            count += this.scoreSheet[i];
         }
         return count;
     }
@@ -35,15 +34,14 @@ public class Player implements Serializable{
     public int getLowerScore() {
         int count = 0;
         for (int i = 6; i < 13; i++) {
-            if (this.getScoreSheet()[i] >= 0)
-                count += this.scoreSheet[i];
+            count += this.scoreSheet[i];
         }
         return count;
     }
 
     public int getScore() {
         int sc = getLowerScore() + getUpperScore();
-        sc += scoreSheet[13]+scoreSheet[14]+2;
+        sc += scoreSheet[13]+scoreSheet[14]+14;
         return sc;
     }
 
@@ -144,6 +142,19 @@ public class Player implements Serializable{
         }
         if(skull > 2){
             totalscore = 0;
+        }
+        if ((ID == "2Swords(300 pts)")){
+            int sword = 0;
+            for (int i = 0;i<dieRoll.length;i++){
+                if (dieRoll[i] == 5){
+                    sword++;
+                }
+            }
+            if (sword < 2){                                     //lose in sea battle or die with 3 or more skulls both lose points.
+                totalscore = -300;
+            }else{
+                totalscore = totalscore + 300;
+            }
         }
         setScoreSheet(r,totalscore);
         return getScoreSheet();
