@@ -49,6 +49,7 @@ public class Player implements Serializable{
         Scanner myObj = new Scanner(System.in);
         int count = 1;
         int stop = 0;
+        int sorceress = 0;
         int[] store = new int[8];
         game.printDieRoll(dieRoll);
         System.out.println("1 = coin, 2 = Diamond, 3 = Monkey, 4 = Parrot, 5 = Sword, 6 = Skull");
@@ -56,19 +57,30 @@ public class Player implements Serializable{
         System.out.println("The Fortune card you have is: " + ID);
         System.out.println("");
         while (stop == 0) {
+            ArrayList<Integer> skullroll = new ArrayList<Integer>();      //store the index of the skull dice.
             int skull = 0;
             int reroll = 1;
             for (int i = 0; i < dieRoll.length; i++) {
                 if (dieRoll[i] == 6) {
                     skull++;
+                    skullroll.add(i);
                     //System.out.println("dice"+dieRoll[i]);
                     //System.out.println("Skull"+skull);j
-
                 }
             }
-            if (skull == 3 && count == 1) {             //first roll with 3 skull dices.
+            if (skull == 3 && count == 1 ) {             //first roll with 3 skull dices.
                 stop = 1;
                 System.out.println("roll with 3 skull dice.");
+                break;
+            }
+            if (skull >= 3 && count > 1) {             //second+ roll with 3 and more dies.
+                stop = 1;
+                System.out.println("roll with 3 and more skull dice.");
+                break;
+            }
+            if (ID == "Sorceress" && sorceress == 1 && skull>=3){
+                stop = 1;
+                System.out.println("roll with 3 and more skull dice.");
                 break;
             }
             if (skull != 3) {
@@ -82,9 +94,36 @@ public class Player implements Serializable{
                     System.out.println("Select the die to re-roll: (1,2...) ");
 
                     String[] die = (myObj.next()).replaceAll("\\s", "").split(",");
+                    if (ID == "Sorceress"){                     //if the sorceress roll one skull
+                        for (int j = 0;j<die.length;j++){
+                            if (dieRoll[Integer.parseInt(die[j])] == 6){
+                                sorceress = 1;
+                            }
+                        }
+                    }
                     if (die.length <= 1) {                               //must use at least two dice,
                         System.out.println("Must roll at least two dices");
                         continue;
+                    }
+                    if (ID == "Sorceress" && sorceress == 1){
+                        for (int i = 0;i< die.length;i++){                  //cannot re-roll the skull die.
+                            for (int k = 0;k<skullroll.size();k++){
+                                if (Integer.parseInt(die[i])-1 == skullroll.get(k)) {      //compare the reroll with the skull dice index.
+                                    System.out.println("cannot reroll the skull die again");
+                                    reroll = 0;
+                                }
+                            }
+                        }
+                    }
+                    if (ID != "Sorceress"){
+                        for (int i = 0;i< die.length;i++){                  //cannot re-roll the skull die.
+                            for (int k = 0;k<skullroll.size();k++){
+                                if (Integer.parseInt(die[i])-1 == skullroll.get(k)) {      //compare the reroll with the skull dice index.
+                                    System.out.println("cannot reroll the skull die");
+                                    reroll = 0;
+                                }
+                            }
+                        }
                     }
                     if (reroll == 1) {
                         dieRoll = game.reRollKeep(dieRoll, die);
