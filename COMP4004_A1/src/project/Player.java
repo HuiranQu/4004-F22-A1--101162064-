@@ -50,7 +50,7 @@ public class Player implements Serializable{
         int count = 1;
         int stop = 0;
         int sorceress = 0;
-        int[] store = new int[8];
+        int[] store = {0,0,0,0,0,0,0,0};
         game.printDieRoll(dieRoll);
         System.out.println("1 = coin, 2 = Diamond, 3 = Monkey, 4 = Parrot, 5 = Sword, 6 = Skull");
         System.out.println("");
@@ -89,6 +89,9 @@ public class Player implements Serializable{
                     System.out.println("(1) Choose dice number to roll again");
                 }
                 System.out.println("(2) Score this round");
+                if (ID == "Chest"){
+                    System.out.println("(3) Choose dice to put in Chest:");
+                }
                 int act = myObj.nextInt();
                 if (act == 1 && count < 100) {
                     System.out.println("Select the die to re-roll: (1,2...) ");
@@ -137,8 +140,43 @@ public class Player implements Serializable{
                     System.out.println("Where do you want write the score in the scoresheet? (0~14)");
                     r = myObj.nextInt();
                     setScoreSheet(scoreRound(r, dieRoll, ID));
-                    r = -1;
+                    if (ID == "Chest" && skull >= 3){
+                        setScoreSheet(scoreRound(r, store,ID));
+                    }
+                    if (ID == "Chest" && skull < 3){
+                        for(int i = 0;i<8;i++){
+                            if (dieRoll[i] != 0){
+                                for(int j = 0;i<8;j++){
+                                    if (store[j] == 0){
+                                        store[j] = dieRoll[i];
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        setScoreSheet(scoreRound(r, store,ID));
+                    }
                     stop = 1;
+                }
+                if (act == 3){
+                    System.out.println("Place(1) or take out(2) ?");
+                    int chestAct = myObj.nextInt();
+                    if (chestAct == 1){
+                        System.out.println("Which dice do you want put in Chest?(e.g 1,2...)");
+                        String[] die = (myObj.next()).replaceAll("\\s", "").split(",");
+                        for(int i = 0;i<die.length;i++){
+                            store[i] = dieRoll[Integer.parseInt(die[i])];
+                            dieRoll[Integer.parseInt(die[i])] = 0;
+                        }
+                    }
+                    if (chestAct == 2){
+                        System.out.println("Which dice do you want take in Chest?(e.g 1,2...)");
+                        String[] die = (myObj.next()).replaceAll("\\s", "").split(",");
+                        for(int i = 0;i<die.length;i++){
+                            dieRoll[Integer.parseInt(die[i])] = store[i];
+                            store[i] = 0;
+                        }
+                    }
                 }
             }
         }
