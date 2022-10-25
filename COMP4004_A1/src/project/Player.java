@@ -309,7 +309,37 @@ public class Player implements Serializable{
     }
 
 
+    public Player returnWinner() {
+        if (this.getScore()>=3000){
+            for (int i = 0; i < 3; i++) {
+                if (players[i].getName()!=this.getName()){
+                    players[i].startoneGame();
+                }
+            }															//if one player has score above 3000, other player play one more round
+        }
+        try {                                             // After all finish, if one more player have more than 3000, heighest win
+            int[][] pl = clientConnection.receiveScores();     //If no one above 3000, game contiune.
+            for (int i = 0; i < 3; i++) {
+                players[i].setScoreSheet(pl[i]);
+            }
+            printPlayerScores(players);
+            Player win = (Player) clientConnection.dIn.readObject();
+            if (playerId == win.playerId) {
+                System.out.println("You win!");
+            } else {
+                System.out.println("The winner is " + win.name);
+            }
 
+            System.out.println("Game over!");
+            return win;
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     
     // client
     private class Client {

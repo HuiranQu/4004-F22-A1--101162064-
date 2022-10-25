@@ -163,13 +163,7 @@ public class GameServer implements Serializable, Runnable {
                 players[2].setScoreSheet(playerServer[2].receiveScores());
                 System.out.println("Player 3 completed turn and their score is " + players[2].getScore());
 
-
-
             }
-            // add the upper bonus
-            //players[0].setScoreSheet(14, game.upperBonus(players[0].getUpperScore()));
-            //players[1].setScoreSheet(14, game.upperBonus(players[1].getUpperScore()));
-           // players[2].setScoreSheet(14, game.upperBonus(players[2].getUpperScore()));
 
             playerServer[0].sendTurnNo(-1);
             playerServer[1].sendTurnNo(-1);
