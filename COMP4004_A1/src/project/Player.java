@@ -41,7 +41,7 @@ public class Player implements Serializable{
 
     public int getScore() {
         int sc = getLowerScore() + getUpperScore();
-        sc += scoreSheet[13]+scoreSheet[14]+14;
+        sc += scoreSheet[13]+scoreSheet[14];
         return sc;
     }
 
@@ -65,9 +65,13 @@ public class Player implements Serializable{
                 if (dieRoll[i] == 6) {
                     skull++;
                     skullroll.add(i);
-                    //System.out.println("dice"+dieRoll[i]);
-                    //System.out.println("Skull"+skull);j
                 }
+            }
+            if (ID == "1Skull"){
+                skull = skull + 1;
+            }
+            if (ID == "2Skulls"){
+                skull = skull + 2;
             }
             if (count ==1 && skull >3){
                 System.out.println("Go to Island of Skull");
@@ -308,7 +312,89 @@ public class Player implements Serializable{
         return getScoreSheet();
     }
 
+    /*
+     * ----------Network Stuff------------
+     */
 
+    /*
+     * send the to do to test server
+     */
+    public void sendStringToServer(String str) {
+        clientConnection.sendString(str);
+    }
+
+    public void connectToClient() {
+        clientConnection = new Client();
+    }
+
+    public void connectToClient(int port) {
+        clientConnection = new Client(port);
+    }
+
+    public void killClient() {
+        clientConnection.terminate();
+    }
+
+    public void initializePlayers() {
+        for (int i = 0; i < 3; i++) {
+            players[i] = new Player(" ");
+        }
+    }
+
+    /*
+     * update turns
+     */
+    public void printPlayerScores(Player[] pl) {
+        // print the score sheets
+
+        if (playerId == 1) {
+            game.printScoreSheet(pl[0]);
+            game.printScoreSheet(pl[1]);
+            game.printScoreSheet(pl[2]);
+        } else if (playerId == 2) {
+            game.printScoreSheet(pl[1]);
+            game.printScoreSheet(pl[0]);
+            game.printScoreSheet(pl[2]);
+        } else {
+            game.printScoreSheet(pl[2]);
+            game.printScoreSheet(pl[0]);
+            game.printScoreSheet(pl[1]);
+        }
+    }
+
+    public void startGame() {
+        // receive players once for names
+        players = clientConnection.receivePlayer();
+        while (true) {
+            int round = clientConnection.receiveRoundNo();
+            if (round == -1)
+                break;
+            System.out.println("\n \n \n ********Round Number " + round + "********");
+            int[][] pl = clientConnection.receiveScores();
+            for (int i = 0; i < 3; i++) {
+                players[i].setScoreSheet(pl[i]);
+            }
+            printPlayerScores(players);
+            int[] dieRoll = game.rollDice();
+            String Fortune = game.getFortune();
+            clientConnection.sendScores(playRound(dieRoll,Fortune));
+        }
+    }
+
+    public void startoneGame() {
+        // receive players once for names
+        players = clientConnection.receivePlayer();
+        int round = clientConnection.receiveRoundNo();
+        //System.out.println("\n \n \n ********Round Number " + round + "********");
+        int[][] pl = clientConnection.receiveScores();
+        for (int i = 0; i < 3; i++) {
+            players[i].setScoreSheet(pl[i]);
+        }
+        printPlayerScores(players);
+        int[] dieRoll = game.rollDice();
+        String F = game.getFortune();
+        clientConnection.sendScores(playRound(dieRoll,F));
+    }
     public Player returnWinner() {
         if (this.getScore()>=3000){
             for (int i = 0; i < 3; i++) {
@@ -508,7 +594,7 @@ public class Player implements Serializable{
     public Player(String n) {
         name = n;
         for (int i = 0; i < scoreSheet.length; i++) {
-            scoreSheet[i] = -1;
+            scoreSheet[i] = 0;
         }
     }
     public Player getPlayer() {

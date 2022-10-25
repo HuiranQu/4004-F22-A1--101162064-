@@ -193,4 +193,24 @@ public class Game implements Serializable {
         System.out.println("|___|  |___|  |___|  |___|  |___|  |___|  |___|  |___|");
 
     }
+
+    public void printScoreSheet(Player p) {
+        String[] sc = new String[p.getScoreSheet().length];
+        for (int i = 0; i < p.getScoreSheet().length; i++) {
+            if (p.getScoreSheet()[i] == -1) {
+                sc[i] = "-";
+            } else {
+                sc[i] = "" + p.getScoreSheet()[i];
+            }
+        }
+        System.out.println(
+                "|---------------------------------------------------------------------------------------------------------------------------------------|");
+        System.out.println("| Scores for player : " + p.name + "\t \t \t \t \t \t \t \t \t \t \t \t \t \t|");
+        System.out.println(
+                "|---------------------------------------------------------------------------------------------------------------------------------------|");
+        System.out.println("| Total Score : " + p.getScore() + "\t \t \t \t \t \t \t \t \t \t \t \t \t \t \t|");
+        System.out.println(
+                "|---------------------------------------------------------------------------------------------------------------------------------------|");
+
+    }
 }
