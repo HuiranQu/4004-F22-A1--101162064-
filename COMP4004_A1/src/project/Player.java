@@ -50,6 +50,7 @@ public class Player implements Serializable{
         int count = 1;
         int stop = 0;
         int sorceress = 0;
+        int island = 0;
         int[] store = {0,0,0,0,0,0,0,0};
         game.printDieRoll(dieRoll);
         System.out.println("1 = coin, 2 = Diamond, 3 = Monkey, 4 = Parrot, 5 = Sword, 6 = Skull");
@@ -67,6 +68,10 @@ public class Player implements Serializable{
                     //System.out.println("dice"+dieRoll[i]);
                     //System.out.println("Skull"+skull);j
                 }
+            }
+            if (count ==1 && skull >3){
+                System.out.println("Go to Island of Skull");
+                island = 1;
             }
             if (skull == 3 && count == 1 ) {             //first roll with 3 skull dices.
                 stop = 1;
@@ -95,7 +100,6 @@ public class Player implements Serializable{
                 int act = myObj.nextInt();
                 if (act == 1 && count < 100) {
                     System.out.println("Select the die to re-roll: (1,2...) ");
-
                     String[] die = (myObj.next()).replaceAll("\\s", "").split(",");
                     if (ID == "Sorceress"){                     //if the sorceress roll one skull
                         for (int j = 0;j<die.length;j++){
@@ -107,6 +111,17 @@ public class Player implements Serializable{
                     if (die.length <= 1) {                               //must use at least two dice,
                         System.out.println("Must roll at least two dices");
                         continue;
+                    }
+                    if (island == 1){                //has at least one skull in each reroll.
+                        int s = 0;
+                        for (int i = 0;i<die.length;i++){
+                            if (dieRoll[Integer.parseInt(die[i])] == 6){
+                                s++;
+                            }
+                        }
+                        if (s == 0){
+                            break;
+                        }
                     }
                     if (ID == "Sorceress" && sorceress == 1){
                         for (int i = 0;i< die.length;i++){                  //cannot re-roll the skull die.
@@ -139,22 +154,26 @@ public class Player implements Serializable{
                 if (act == 2) {
                     System.out.println("Where do you want write the score in the scoresheet? (0~14)");
                     r = myObj.nextInt();
-                    setScoreSheet(scoreRound(r, dieRoll, ID));
+                    if (island == 1){
+                        setScoreSheet(island(players,dieRoll,ID));
+                    }else{
+                        setScoreSheet(scoreRound(r, dieRoll, ID));
+                    }
                     if (ID == "Chest" && skull >= 3){
                         setScoreSheet(scoreRound(r, store,ID));
                     }
-                    if (ID == "Chest" && skull < 3){
-                        for(int i = 0;i<8;i++){
-                            if (dieRoll[i] != 0){
-                                for(int j = 0;i<8;j++){
-                                    if (store[j] == 0){
+                    if (ID == "Chest" && skull < 3) {
+                        for (int i = 0; i < 8; i++) {
+                            if (dieRoll[i] != 0) {
+                                for (int j = 0; j < 8; j++) {
+                                    if (store[j] == 0) {
                                         store[j] = dieRoll[i];
                                         break;
                                     }
                                 }
                             }
                         }
-                        setScoreSheet(scoreRound(r, store,ID));
+                        setScoreSheet(scoreRound(r, store, ID));
                     }
                     stop = 1;
                 }
@@ -263,6 +282,31 @@ public class Player implements Serializable{
         return getScoreSheet();
     }
 
+    public int[] island(Player[] pls,int[] die,String ID){
+        int skull = 0;
+        int reduce = 0;
+        for (int i = 0;i<die.length;i++){
+            if (die[i] == 6){
+                skull++;
+            }
+        }
+        if (ID == "2Skulls"){
+            skull = skull +2;
+        }
+        if (ID == "1Skull"){
+            skull = skull + 1;
+        }
+        reduce = -100*skull;
+        if (ID == "Captain"){
+            reduce = 2*reduce;
+        }
+        for (int i = 0;i<pls.length;i++){
+            if (pls[i].getName() != this.getName()){
+                pls[i].setScoreSheet(14,reduce);
+            }
+        }
+        return getScoreSheet();
+    }
 
 
 
@@ -418,6 +462,10 @@ public class Player implements Serializable{
     }
     public int[] getScoreSheet() {
         return scoreSheet;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setScoreSheet(int cat, int score) {
