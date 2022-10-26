@@ -133,11 +133,6 @@ public class Game implements Serializable {
                 getScore = 8;
             }
         }
-        if(num_CandD == 4){                       //need all other 5 dice to get score
-            if ((val.contains(4))){
-                getScore = 8;
-            }
-        }
         if(num_CandD == 5){                       //need all other 3 dice get score.
             if ((val.contains(3))){
                 getScore = 8;
