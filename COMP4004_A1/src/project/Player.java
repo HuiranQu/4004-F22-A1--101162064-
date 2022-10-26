@@ -236,6 +236,8 @@ public class Player implements Serializable{
         if (ID == "2Skulls"){
             skull = skull + 2;
         }
+        System.out.println("Set:" + game.scoreSet(dieRoll));
+        System.out.println("Full:" + Full);
         totalscore = game.scoreSet(dieRoll)+game.scoreCandD(dieRoll)+Full;
         if (ID == "Captain"){
             totalscore = 2*totalscore;

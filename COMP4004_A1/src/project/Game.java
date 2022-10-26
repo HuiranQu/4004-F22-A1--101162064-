@@ -66,7 +66,7 @@ public class Game implements Serializable {
         if ((isOfAKind(7,dieRoll))){
             sc = sc + 2000;
         }
-        if (isOfAKind(8,dieRoll)){
+        if (isOfAKind(8,dieRoll)||isOfAKind(9,dieRoll)){
             sc = sc + 4000;
         }
         return sc;
