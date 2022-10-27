@@ -45,7 +45,7 @@ class TestRow111 {
         re[4] = 1;
         pl.island(players,re,Card);
         Assertions.assertEquals(0,pl.getScore());
-        Assertions.assertEquals(-500,pl1.getScore());
-        Assertions.assertEquals(-500,pl2.getScore());
+        Assertions.assertEquals(0,pl1.getScore());
+        Assertions.assertEquals(0,pl2.getScore());
     }
 }
