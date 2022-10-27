@@ -42,6 +42,9 @@ public class Player implements Serializable{
     public int getScore() {
         int sc = getLowerScore() + getUpperScore();
         sc += scoreSheet[13]+scoreSheet[14];
+        if (sc < 0){
+            sc = 0;
+        }
         return sc;
     }
 
@@ -327,9 +330,13 @@ public class Player implements Serializable{
             reduce = 2*reduce;
         }
         for (int i = 0;i<pls.length;i++){
-            if (pls[i].getName() != this.getName()){
-                pls[i].setScoreSheet(14,reduce);
-            }
+                if (pls[i].getName() != this.getName()){
+                    if (pls[i].getScore() >= reduce){
+                        pls[i].setScoreSheet(14,reduce);
+                    }else {
+                        pls[i].setScoreSheet(14,0);
+                    }
+                }
         }
         return getScoreSheet();
     }
