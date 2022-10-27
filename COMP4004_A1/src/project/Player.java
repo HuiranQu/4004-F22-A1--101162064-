@@ -256,7 +256,7 @@ public class Player implements Serializable{
             if (sword < 2){//lose in sea battle or die with 3 or more skulls both lose points.
                 if (this.getScore()>=300){
                     totalscore = -300;
-                    System.out.println("Die in Sea Battle, -500 Points");
+                    System.out.println("Die in Sea Battle, -300 Points");
                 }else{
                     totalscore = -1*this.getScore();
                     System.out.println("Die in Sea Battle,- "+this.getScore()+" Points, score cannot less than 0");
