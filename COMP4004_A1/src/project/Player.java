@@ -253,8 +253,14 @@ public class Player implements Serializable{
                     sword++;
                 }
             }
-            if (sword < 2){                                     //lose in sea battle or die with 3 or more skulls both lose points.
-                totalscore = -300;
+            if (sword < 2){//lose in sea battle or die with 3 or more skulls both lose points.
+                if (this.getScore()>=300){
+                    totalscore = -300;
+                    System.out.println("Die in Sea Battle, -500 Points");
+                }else{
+                    totalscore = -1*this.getScore();
+                    System.out.println("Die in Sea Battle,- "+this.getScore()+" Points, score cannot less than 0");
+                }
             }else{
                 totalscore = totalscore + 300;
             }
@@ -266,8 +272,14 @@ public class Player implements Serializable{
                     sword++;
                 }
             }
-            if (sword < 3){                                     //lose in sea battle or die with 3 or more skulls both lose points.
-                totalscore = -500;
+            if (sword < 3){                         //lose in sea battle or die with 3 or more skulls both lose points.
+                if (this.getScore()>=500){
+                    totalscore = -500;
+                    System.out.println("Die in Sea Battle, -500 Points");
+                }else{
+                    totalscore = -1*this.getScore();
+                    System.out.println("Die in Sea Battle,- "+this.getScore()+" Points, score cannot less than 0");
+                }
             }else{
                 totalscore = totalscore + 500;
             }
@@ -280,7 +292,13 @@ public class Player implements Serializable{
                 }
             }
             if (sword < 4){                                     //lose in sea battle or die with 3 or more skulls both lose points.
-                totalscore = -1000;
+                if (this.getScore()>=1000){
+                    totalscore = -1000;
+                    System.out.println("Die in Sea Battle, -1000 Points");
+                }else{
+                    totalscore = -1*this.getScore();
+                    System.out.println("Die in Sea Battle,- "+this.getScore()+" Points, score cannot less than 0");
+                }
             }else{
                 totalscore = totalscore + 1000;
             }

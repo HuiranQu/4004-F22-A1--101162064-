@@ -18,14 +18,16 @@ class Player_2SwordSeaBattle_Test {
     }
     @Test
     public void die_lose_lessSword_Test(){
+        pl.setScoreSheet(0,300);
         pl.scoreRound(1,die2,"2Swords(300 pts)");
-        Assertions.assertEquals(-300,pl.getScore());
+        Assertions.assertEquals(0,pl.getScore());
     }
 
     @Test
     public void die_lose_3skull_Test(){
+        pl.setScoreSheet(0,30);
         pl.scoreRound(1,die3,"2Swords(300 pts)");
-        Assertions.assertEquals(-300,pl.getScore());
+        Assertions.assertEquals(0,pl.getScore());
     }
 
 }
