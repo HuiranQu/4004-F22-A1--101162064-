@@ -253,7 +253,7 @@ public class Player implements Serializable{
                     sword++;
                 }
             }
-            if (sword < 2){//lose in sea battle or die with 3 or more skulls both lose points.
+            if (sword < 2||skull>2){//lose in sea battle or die with 3 or more skulls both lose points.
                 if (this.getScore()>=300){
                     totalscore = -300;
                     System.out.println("Die in Sea Battle, -300 Points");
@@ -272,7 +272,7 @@ public class Player implements Serializable{
                     sword++;
                 }
             }
-            if (sword < 3){                         //lose in sea battle or die with 3 or more skulls both lose points.
+            if (sword < 3 || skull>2){                         //lose in sea battle or die with 3 or more skulls both lose points.
                 if (this.getScore()>=500){
                     totalscore = -500;
                     System.out.println("Die in Sea Battle, -500 Points");
@@ -291,7 +291,7 @@ public class Player implements Serializable{
                     sword++;
                 }
             }
-            if (sword < 4){                                     //lose in sea battle or die with 3 or more skulls both lose points.
+            if (sword < 4 || skull>2){                                     //lose in sea battle or die with 3 or more skulls both lose points.
                 if (this.getScore()>=1000){
                     totalscore = -1000;
                     System.out.println("Die in Sea Battle, -1000 Points");
