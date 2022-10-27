@@ -240,8 +240,6 @@ public class Player implements Serializable{
             skull = skull + 2;
         }
         Full = game.scoreFullchest(dieRoll);
-        System.out.println("Set:" + game.scoreSet(dieRoll));
-        System.out.println("Full:" + Full);
         totalscore = game.scoreSet(dieRoll)+game.scoreCandD(dieRoll)+Full;
         if (ID == "Captain"){
             totalscore = 2*totalscore;
@@ -633,7 +631,15 @@ public class Player implements Serializable{
         return this;
     }
     public static void main(String args[]) {
-
+        Scanner myObj = new Scanner(System.in);
+        System.out.print("What is your name ? ");
+        String name = myObj.next();
+        Player p = new Player(name);
+        p.initializePlayers();
+        p.connectToClient();
+        p.startGame();
+        p.returnWinner();
+        myObj.close();
 
     }
 
