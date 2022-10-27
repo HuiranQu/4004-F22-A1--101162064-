@@ -245,6 +245,7 @@ public class Player implements Serializable{
         }
         if(skull > 2){
             totalscore = 0;
+            System.out.println("Die for 3 or more skulls");
         }
         if ((ID == "2Swords(300 pts)")){
             int sword = 0;
