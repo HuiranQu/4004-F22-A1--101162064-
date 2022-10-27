@@ -19,8 +19,8 @@ class Player_IslandSkull_Test {
         players[1] = pl1;
         players[2] = pl2;
         pl.island(players,die,"Coin");
-        Assertions.assertEquals(-400,pl1.getScore());
-        Assertions.assertEquals(-400,pl2.getScore());
+        Assertions.assertEquals(0,pl1.getScore());
+        Assertions.assertEquals(0,pl2.getScore());
     }
 
     @Test
@@ -29,8 +29,8 @@ class Player_IslandSkull_Test {
         players[1] = pl1;
         players[2] = pl2;
         pl.island(players,die2,"2Skulls");
-        Assertions.assertEquals(-500,pl1.getScore());
-        Assertions.assertEquals(-500,pl2.getScore());
+        Assertions.assertEquals(0,pl1.getScore());
+        Assertions.assertEquals(0,pl2.getScore());
     }
 
     @Test
@@ -39,7 +39,7 @@ class Player_IslandSkull_Test {
         players[1] = pl1;
         players[2] = pl2;
         pl.island(players,die,"Captain");
-        Assertions.assertEquals(-800,pl1.getScore());
-        Assertions.assertEquals(-800,pl2.getScore());
+        Assertions.assertEquals(0,pl1.getScore());
+        Assertions.assertEquals(0,pl2.getScore());
     }
 }
