@@ -335,7 +335,7 @@ public class Player implements Serializable{
                         System.out.println("Reduce: "+reduce+" points because player in Island of skull");
                         pls[i].setScoreSheet(14,reduce);
                     }else {
-                        reduce = pls[i].getScore()
+                        reduce = pls[i].getScore();
                         System.out.println("Reduce: "+reduce+" points because player in Island of skull, player score cannot be negative");
                         pls[i].setScoreSheet(14,0);
                     }
