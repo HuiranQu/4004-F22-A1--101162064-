@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TestRow83 {
+class TestRow84 {
     Player pl = new Player("a");
     Game game = new Game();
     List<String> Fortune = new ArrayList<>(
@@ -20,22 +20,18 @@ class TestRow83 {
     int[] die = game.rollDice();
 
     @Test
-    public void Row83(){
+    public void Row84(){
         Card = "Monkey&Parrot";
-        die[0] = 3;
-        die[1] = 3;
-        die[2] = 5;
-        die[3] = 5;
-        die[4] = 4;
-        die[5] = 4;
-        die[6] = 1;
-        die[7] = 1;
-        String[] reroll = {"3","4"};
-        int[] re =game.reRollKeep(die,reroll);
-        re[2] = 3;
-        re[3] = 4;
-        pl.scoreRound(0,re,Card);
+        die[0] = 6;
+        die[1] = 6;
+        die[2] = 6;
+        die[3] = 3;
+        die[4] = 3;
+        die[5] = 3;
+        die[6] = 4;
+        die[7] = 4;
+        pl.scoreRound(0,die,Card);
         int score = pl.getScore();
-        Assertions.assertEquals(1700,score);
+        Assertions.assertEquals(0,score);
     }
 }
