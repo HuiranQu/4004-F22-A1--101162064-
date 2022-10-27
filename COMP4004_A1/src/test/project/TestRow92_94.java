@@ -6,9 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class TestRow87_90 {
+class TestRow92_94 {
     Player pl = new Player("a");
     Game game = new Game();
     List<String> Fortune = new ArrayList<>(
@@ -20,49 +18,32 @@ class TestRow87_90 {
     int[] die = game.rollDice();
 
     @Test
-    public void Row87_90(){
+    public void Row92_94(){
         Card = "Chest";
-        die[0] = 4;
-        die[1] = 4;
+        die[0] = 6;
+        die[1] = 6;
         die[2] = 4;
-        die[3] = 5;
-        die[4] = 5;
-        die[5] = 2;
-        die[6] = 2;
+        die[3] = 4;
+        die[4] = 4;
+        die[5] = 1;
+        die[6] = 1;
         die[7] = 1;
-        int[] store = {2,2,1,0,0,0,0,0};
+        int[] store = {1,1,1,0,0,0,0,0};
         die[5] = 0;
         die[6] = 0;
         die[7] = 0;
-        String[] reroll = {"5","4"};
+        String[] reroll = {"5","4","3"};
         int[] re =game.reRollKeep(die,reroll);
-        re[4] = 4;
-        re[3] = 4;
-        store[0] = 4;
-        store[1] = 4;
-        store[2] = 4;
-        store[3] = 4;
-        store[4] = 4;
-        die[0] = 2;
-        die[1] = 2;
-        die[2] = 1;
-        String[] reroll2 = {"1","2","3"};
+        re[4] = 1;
+        re[3] = 2;
+        re[2] = 2;
+        store[3] = 1;
+        String[] reroll2 = {"4","3"};
         int[] re2 =game.reRollKeep(re,reroll2);
-        die[0] = 6;
-        die[1] = 1;
-        die[2] = 4;
-        for (int i = 0; i < 8; i++) {                //same for loop in Play class, playRound function
-            if (die[i] != 0) {
-                for (int j = 0; j < 8; j++) {
-                    if (store[j] == 0) {
-                        store[j] = die[i];
-                        break;
-                    }
-                }
-            }
-        }
+        re[2] = 6;
+        re[3] = 1;
         pl.scoreRound(0,store,Card);
         int score = pl.getScore();
-        Assertions.assertEquals(1100,score);
+        Assertions.assertEquals(600,score);
     }
 }

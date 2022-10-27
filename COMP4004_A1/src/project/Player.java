@@ -164,6 +164,7 @@ public class Player implements Serializable{
                         setScoreSheet(scoreRound(r, dieRoll, ID));
                     }
                     if (ID == "Chest" && skull >= 3){
+                        System.out.println("Die with 3 and more skulls");
                         setScoreSheet(scoreRound(r, store,ID));
                     }
                     if (ID == "Chest" && skull < 3) {
