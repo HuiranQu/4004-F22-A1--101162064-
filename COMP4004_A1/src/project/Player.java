@@ -212,7 +212,6 @@ public class Player implements Serializable{
         int totalscore = 0;
         int skull = 0;
         int Full  = 0;
-        Full = game.scoreFullchest(dieRoll);
         for (int i = 0;i<dieRoll.length;i++){
             if (dieRoll[i] == 6){
                 skull++;
@@ -237,6 +236,7 @@ public class Player implements Serializable{
         if (ID == "2Skulls"){
             skull = skull + 2;
         }
+        Full = game.scoreFullchest(dieRoll);
         System.out.println("Set:" + game.scoreSet(dieRoll));
         System.out.println("Full:" + Full);
         totalscore = game.scoreSet(dieRoll)+game.scoreCandD(dieRoll)+Full;
