@@ -20,7 +20,7 @@ class TestRow123 {
     int[] die = game.rollDice();
 
     @Test
-    public void Row116(){
+    public void Row123(){
         Card = "4Swords(1000 pts)";
         die[0] = 3;
         die[1] = 3;

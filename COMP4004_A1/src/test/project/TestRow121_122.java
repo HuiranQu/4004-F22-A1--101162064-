@@ -20,7 +20,7 @@ class TestRow121_122 {
     int[] die = game.rollDice();
 
     @Test
-    public void Row120(){
+    public void Row121_122(){
         pl.setScoreSheet(0,500);
         Card = "3Swords(500 pts)";
         die[0] = 3;
