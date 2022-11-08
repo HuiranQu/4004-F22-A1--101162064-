@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 public class Player implements Serializable{
     private static final long serialVersionUID = 1L;
@@ -70,10 +71,10 @@ public class Player implements Serializable{
                     skullroll.add(i);
                 }
             }
-            if (ID == "1Skull"){
+            if (Objects.equals(ID, "1Skull")){
                 skull = skull + 1;
             }
-            if (ID == "2Skulls"){
+            if (Objects.equals(ID, "2Skulls")){
                 skull = skull + 2;
             }
             if (count ==1 && skull >3){
@@ -90,7 +91,7 @@ public class Player implements Serializable{
                 System.out.println("roll with 3 and more skull dice.");
                 break;
             }
-            if (ID == "Sorceress" && sorceress == 1 && skull>=3){
+            if (Objects.equals(ID, "Sorceress") && sorceress == 1 && skull>=3){
                 stop = 1;
                 System.out.println("roll with 3 and more skull dice.");
                 break;
@@ -101,14 +102,14 @@ public class Player implements Serializable{
                     System.out.println("(1) Choose dice number to roll again");
                 }
                 System.out.println("(2) Score this round");
-                if (ID == "Chest"){
+                if (Objects.equals(ID, "Chest")){
                     System.out.println("(3) Choose dice to put in Chest:");
                 }
                 int act = myObj.nextInt();
                 if (act == 1 && count < 100) {
                     System.out.println("Select the die to re-roll: (1,2...) ");
                     String[] die = (myObj.next()).replaceAll("\\s", "").split(",");
-                    if (ID == "Sorceress"){                     //if the sorceress roll one skull
+                    if (Objects.equals(ID, "Sorceress")){                     //if the sorceress roll one skull
                         for (int j = 0;j<die.length;j++){
                             if (dieRoll[Integer.parseInt(die[j])] == 6){
                                 sorceress = 1;
@@ -130,7 +131,7 @@ public class Player implements Serializable{
                             break;
                         }
                     }
-                    if (ID == "Sorceress" && sorceress == 1){
+                    if (Objects.equals(ID, "Sorceress") && sorceress == 1){
                         for (int i = 0;i< die.length;i++){                  //cannot re-roll the skull die.
                             for (int k = 0;k<skullroll.size();k++){
                                 if (Integer.parseInt(die[i])-1 == skullroll.get(k)) {      //compare the reroll with the skull dice index.
@@ -140,7 +141,7 @@ public class Player implements Serializable{
                             }
                         }
                     }
-                    if (ID != "Sorceress"){
+                    if (!Objects.equals(ID, "Sorceress")){
                         for (int i = 0;i< die.length;i++){                  //cannot re-roll the skull die.
                             for (int k = 0;k<skullroll.size();k++){
                                 if (Integer.parseInt(die[i])-1 == skullroll.get(k)) {      //compare the reroll with the skull dice index.
@@ -166,11 +167,11 @@ public class Player implements Serializable{
                     }else{
                         setScoreSheet(scoreRound(r, dieRoll, ID));
                     }
-                    if (ID == "Chest" && skull >= 3){
+                    if (Objects.equals(ID, "Chest") && skull >= 3){
                         System.out.println("Die with 3 and more skulls");
                         setScoreSheet(scoreRound(r, store,ID));
                     }
-                    if (ID == "Chest" && skull < 3) {
+                    if (Objects.equals(ID, "Chest") && skull < 3) {
                         for (int i = 0; i < 8; i++) {
                             if (dieRoll[i] != 0) {
                                 for (int j = 0; j < 8; j++) {
@@ -220,35 +221,35 @@ public class Player implements Serializable{
                 skull++;
             }
         }
-        if (ID == "Coin"){                    //coin F card
+        if (Objects.equals(ID, "Coin")){                    //coin F card
             dieRoll[8] = 1;
         }
-        if (ID == "Diamond"){                //Diamond F card
+        if (Objects.equals(ID, "Diamond")){                //Diamond F card
             dieRoll[8] = 2;
         }
-        if (ID == "Monkey&Parrot"){                //transform every monkey into parrot.
+        if (Objects.equals(ID, "Monkey&Parrot")){                //transform every monkey into parrot.
             for (int i= 0;i<dieRoll.length;i++){
                 if (dieRoll[i] == 3){
                     dieRoll[i] = 4;
                 }
             }
         }
-        if (ID == "1Skull"){
+        if (Objects.equals(ID, "1Skull")){
             skull = skull + 1;
         }
-        if (ID == "2Skulls"){
+        if (Objects.equals(ID, "2Skulls")){
             skull = skull + 2;
         }
         Full = game.scoreFullchest(dieRoll);
         totalscore = game.scoreSet(dieRoll)+game.scoreCandD(dieRoll)+Full;
-        if (ID == "Captain"){
+        if (Objects.equals(ID, "Captain")){
             totalscore = 2*totalscore;
         }
         if(skull > 2){
             totalscore = 0;
             System.out.println("Die for 3 or more skulls");
         }
-        if ((ID == "2Swords(300 pts)")){
+        if ((Objects.equals(ID, "2Swords(300 pts)"))){
             int sword = 0;
             for (int i = 0;i<dieRoll.length;i++){
                 if (dieRoll[i] == 5){
@@ -267,7 +268,7 @@ public class Player implements Serializable{
                 totalscore = totalscore + 300;
             }
         }
-        if ((ID == "3Swords(500 pts)")){
+        if ((Objects.equals(ID, "3Swords(500 pts)"))){
             int sword = 0;
             for (int i = 0;i<dieRoll.length;i++){
                 if (dieRoll[i] == 5){
@@ -286,7 +287,7 @@ public class Player implements Serializable{
                 totalscore = totalscore + 500;
             }
         }
-        if ((ID == "4Swords(1000 pts)")){
+        if ((Objects.equals(ID, "4Swords(1000 pts)"))){
             int sword = 0;
             for (int i = 0;i<dieRoll.length;i++){
                 if (dieRoll[i] == 5){
