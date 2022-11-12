@@ -26,3 +26,5 @@ Feature: All the tests plays with only one roll, no any reroll
       |106|6 5 5 5 5 5 5 5 |"2Skulls"      |0   |
       |107|6 6 5 5 5 5 5 5 |"1Skull"       |0   |
       |114|3 3 3 3 6 6 6 5|"2Swords(300 pts)"|0|
+      |116|3 3 5 5 5 6 6 6|"4Swords(1000 pts)"|0|
+      |117|3 3 3 5 5 1 4 4|"2Swords(300 pts)"|500|
