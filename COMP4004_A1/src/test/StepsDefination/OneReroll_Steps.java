@@ -35,13 +35,24 @@ public class OneReroll_Steps {
         die[7] = int8;
     }
 
+    @Then("I reroll dice at {string},{string},{string},{string} once")
+    public void i_reroll_dice_at_once(String string, String string2, String string3, String string4) {
+        reroll[0] = string;
+        reroll[1] = string2;
+        reroll[2] = string3;
+        reroll[3] = string4;
+    }
     @Then("I reroll dice at {string},{string},{string} once")
     public void i_reroll_dice_at_once(String string, String string2, String string3) {
         reroll[0] = string;
         reroll[1] = string2;
         reroll[2] = string3;
     }
-
+    @Then("I reroll dice at {string},{string} once")
+    public void i_reroll_dice_at_once(String string, String string2) {
+        reroll[0] = string;
+        reroll[1] = string2;
+    }
     @When("dice with one reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_one_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
         re[0] = int1;
@@ -54,11 +65,7 @@ public class OneReroll_Steps {
         re[7] = int8;
     }
 
-    @Then("I reroll dice at {string},{string} once")
-    public void i_reroll_dice_at_once(String string, String string2) {
-        reroll[0] = string;
-        reroll[1] = string2;
-    }
+
     @Then("socre points with one reroll is {int}")
     public void socre_points_is(Integer int1) {
         pl.scoreRound(0,re,Card);
