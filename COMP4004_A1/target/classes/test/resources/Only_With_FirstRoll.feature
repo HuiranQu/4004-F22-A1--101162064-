@@ -19,3 +19,4 @@ Feature: All the tests plays with only one roll, no any reroll
       |72 |4 4 4 4 1 1 6 6 |"Coin"   |600  |
       |82 |3 3 3 4 4 4 6 1 |"Monkey&Parrot"|1100|
       |84 |6 6 6 3 3 3 4 4 |"Monkey&Parrot"|0   |
+      |97 |3 3 3 5 5 5 1 4 |"Coin"         |300 |
