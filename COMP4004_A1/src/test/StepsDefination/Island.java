@@ -85,4 +85,11 @@ public class Island {
         Assertions.assertEquals(int2,pl1.getScore());
         Assertions.assertEquals(int2,pl2.getScore());
     }
+    @Then("Player1 get {int} score, and player2 and player3 get {int} since they have no score.")
+    public void player1_get_score_and_player2_and_player3_get_since_they_have_no_score(Integer int1, Integer int2) {
+        pl.island(players,re1,Card);
+        Assertions.assertEquals(int1,pl.getScore());
+        Assertions.assertEquals(int2,pl1.getScore());
+        Assertions.assertEquals(int2,pl2.getScore());
+    }
 }
