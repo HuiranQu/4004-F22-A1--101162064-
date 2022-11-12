@@ -22,3 +22,5 @@ Feature: All the tests plays with only one roll, no any reroll
       |97 |3 3 3 5 5 5 1 4 |"Coin"         |300 |
       |98 |3 3 3 5 5 5 2 2 |"Captain"      |1600|
       |99 |3 3 3 5 5 5 5 1 |"Coin"        |1000 |
+      |103|3 3 4 1 1 2 2 2 |"Monkey&Parrot"|1100|
+      |106|6 5 5 5 5 5 5 5 |"2Skulls"      |0   |
