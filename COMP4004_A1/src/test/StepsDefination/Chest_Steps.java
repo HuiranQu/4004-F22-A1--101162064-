@@ -51,6 +51,12 @@ public class Chest_Steps {
         reroll1[0] = string;
         reroll1[1] = string2;
     }
+    @Then("Player1 reroll left dice at {string},{string},{string} once")
+    public void player1_reroll_left_dice_at_once(String string, String string2, String string3) {
+        reroll1[0] = string;
+        reroll1[1] = string2;
+        reroll1[2] = string3;
+    }
     @When("dice with first left reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_first_left_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
         re1[0] = int1;
@@ -73,11 +79,20 @@ public class Chest_Steps {
         die[1] = int7;
         die[2] = int8;
     }
+    @Then("Player1 put {int} in treasure Chest")
+    public void player1_put_in_treasure_chest(Integer int1) {
+        store[0] = int1;
+    }
     @Then("Player1 reroll left dice at {string},{string},{string} twice")
     public void player1_reroll_left_dice_at_twice(String string, String string2, String string3) {
         reroll2[0] = string;
         reroll2[1] = string2;
         reroll2[2] = string3;
+    }
+    @Then("Player1 reroll left dice at {string},{string} twice")
+    public void player1_reroll_left_dice_at_twice(String string, String string2) {
+        reroll2[0] = string;
+        reroll2[1] = string2;
     }
     @When("dice with second left reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_second_left_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
