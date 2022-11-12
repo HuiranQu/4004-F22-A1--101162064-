@@ -44,7 +44,11 @@ public class TwoReroll_Steps {
         reroll1[1] = string2;
         reroll1[2] = string3;
     }
-
+    @Then("Player1 reroll dice at {string},{string} once")
+    public void player1_reroll_dice_at_once(String string, String string2) {
+        reroll1[0] = string;
+        reroll1[1] = string2;
+    }
     @When("dice with first reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_first_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
         re1[0] = int1;
