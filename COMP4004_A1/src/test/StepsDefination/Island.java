@@ -49,6 +49,14 @@ public class Island {
         reroll1[1] = string2;
         reroll1[2] = string3;
     }
+    @Then("player1 reroll dice at {string},{string},{string},{string},{string}")
+    public void player1_reroll_dice_at(String string, String string2, String string3, String string4, String string5) {
+        reroll1[0] = string;
+        reroll1[1] = string2;
+        reroll1[2] = string3;
+        reroll2[3] = string4;
+        reroll2[4] = string5;
+    }
     @When("dice with the reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_the_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
         re1[0] = int1;
