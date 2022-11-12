@@ -11,3 +11,4 @@ Feature: All the tests plays with only one roll, no any reroll
       |55 |2 2 2 6 6 3 5 4|"Coin"   |500  |
       |56 |1 1 1 1 6 6 5 5 |"Diamond"|700  |
       |57 |5 5 5 4 4 4 4 6 |"Coin"  |400   |
+      |62 |3 3 3 3 3 3 6 6 |"Coin"  |1100  |
