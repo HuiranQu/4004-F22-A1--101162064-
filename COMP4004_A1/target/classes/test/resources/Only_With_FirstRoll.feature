@@ -8,3 +8,4 @@ Feature: All the tests plays with only one roll, no any reroll
       |45 |6 6 6 5 5 5 5 5|"Coin"   |0    |
       |52 |3 3 4 4 2 2 1 1|"Captain"|800  |
       |54 |3 3 3 5 5 5 6 6|"Coin"   |200  |
+      |55 |2 2 2 6 6 3 5 4|"Coin"   |500  |
