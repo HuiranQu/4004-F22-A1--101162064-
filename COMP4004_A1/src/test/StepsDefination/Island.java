@@ -78,11 +78,11 @@ public class Island {
         re2[6] = int7;
         re2[7] = int8;
     }
-    @Then("player1 get {int} score, and player2 and player {int} get {int} since they have no score.")
-    public void player1_get_score_and_player2_and_player_get_since_they_have_no_score(Integer int1, Integer int2, Integer int3) {
+    @Then("player1 get {int} score, and player2 and player3 get {int} since they have no score.")
+    public void player1_get_score_and_player2_and_player_get_since_they_have_no_score(Integer int1, Integer int2) {
         pl.island(players,re2,Card);
-        Assertions.assertEquals(0,pl.getScore());
-        Assertions.assertEquals(0,pl1.getScore());
-        Assertions.assertEquals(0,pl2.getScore());
+        Assertions.assertEquals(int1,pl.getScore());
+        Assertions.assertEquals(int2,pl1.getScore());
+        Assertions.assertEquals(int2,pl2.getScore());
     }
 }

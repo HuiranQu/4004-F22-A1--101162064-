@@ -5,4 +5,6 @@ Feature: Player1 go to island of skull.
     When dice with the reoll outcome is 6 6 3 3 3 6 6 5
     Then player1 reroll dice at "3","4","5","8" twice
     When dice with second rerooll outcome is 6 6 6 6 6 6 6 5
-    Then player1 get 0 score, and player2 and player 3 get 0 since they have no score.
+    Then player1 get 0 score, and player2 and player3 get 0 since they have no score.
+
+    Scenario: Row110_Test
