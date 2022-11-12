@@ -72,6 +72,10 @@ public class TwoReroll_Steps {
         reroll2[1] = string2;
         reroll2[2] = string3;
     }
+    @Then("I reroll dice at {string} twice")
+    public void i_reroll_dice_at_twice(String string) {
+        reroll2[0] = string;
+    }
     @When("dice with second reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_second_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
         re2[0] = int1;
