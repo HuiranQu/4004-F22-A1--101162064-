@@ -318,14 +318,14 @@ public class Player implements Serializable{
                 skull++;
             }
         }
-        if (ID == "2Skulls"){
+        if (Objects.equals(ID, "2Skulls")){
             skull = skull +2;
         }
-        if (ID == "1Skull"){
+        if (Objects.equals(ID, "1Skull")){
             skull = skull + 1;
         }
         reduce = -100*skull;
-        if (ID == "Captain"){
+        if (Objects.equals(ID, "Captain")){
             reduce = 2*reduce;
         }
         for (int i = 0;i<pls.length;i++){
