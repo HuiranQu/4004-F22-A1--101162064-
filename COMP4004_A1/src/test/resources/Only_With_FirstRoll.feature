@@ -21,3 +21,4 @@ Feature: All the tests plays with only one roll, no any reroll
       |84 |6 6 6 3 3 3 4 4 |"Monkey&Parrot"|0   |
       |97 |3 3 3 5 5 5 1 4 |"Coin"         |300 |
       |98 |3 3 3 5 5 5 2 2 |"Captain"      |1600|
+      |99 |3 3 3 5 5 5 5 1 |"Coin"        |1000 |
