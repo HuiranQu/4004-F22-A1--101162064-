@@ -1,6 +1,9 @@
 package StepsDefination;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
 import project.Game;
 import project.Player;
 
@@ -20,5 +23,22 @@ public class WithoutReroll_Steps {
     @Given("I roll a dice, with {string}")
     public void i_roll_a_dice_with(String string) {
         Card = string;
+    }
+    @When("dice outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
+    public void dice_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
+        die[0] = int1;
+        die[1] = int2;
+        die[2] = int3;
+        die[3] = int4;
+        die[4] = int5;
+        die[5] = int6;
+        die[6] = int7;
+        die[7] = int8;
+    }
+    @Then("socre points is {int}")
+    public void socre_points_is(Integer int1) {
+        pl.scoreRound(0,die,Card);
+        int score = pl.getScore();
+        Assertions.assertEquals(int1,score);
     }
 }
