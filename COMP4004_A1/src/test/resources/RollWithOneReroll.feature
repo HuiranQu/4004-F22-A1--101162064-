@@ -7,3 +7,4 @@ Feature: All the player plays with exactly one reroll
     Examples:
       |Row|roll           |Reroll_index|DiceRoll       | Card |Score|
       |45 |6 4 4 4 4 5 5 5|"6","7","8" |6 4 4 4 4 6 6 5|"Coin"| 0   |
+      |46 |6 6 4 4 4 4 5 5|"7","8"     |6 6 4 4 4 4 6 5|"Coin"| 0   |
