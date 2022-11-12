@@ -5,7 +5,7 @@ Feature: All the player plays with exactly one reroll
     When dice with one reoll outcome is <DiceRoll>
     Then socre points with one reroll is <Score>
     Examples:
-      |Row|roll           |Reroll_index|DiceRoll       | Card    |Score|
+      |Row|roll           |Reroll_index|DiceRoll       | Card                |Score|
       |46 |6 4 4 4 4 5 5 5|"6","7","8"    |6 4 4 4 4 6 6 5|"Coin"            |0    |
       |47 |6 6 4 4 4 4 5 5|"7","8"        |6 6 4 4 4 4 6 5|"Coin"            |0    |
       |53 |3 3 4 4 5 5 6 6|"3","4"        |3 3 3 5 5 5 6 6|"Coin"            |200  |
@@ -21,6 +21,7 @@ Feature: All the player plays with exactly one reroll
       |115|5 5 6 6 4 4 4 4|"5","6","7","8"|5 5 6 6 6 6 6 6|"3Swords(500 pts)"|0    |
       |119|3 3 3 3 5 6 4 4|"7","8"        |3 3 3 3 5 6 5 6|"2Swords(300 pts)"|500  |
       |122|4 4 4 4 5 5 6 6|"1","2","3","4"|6 6 5 5 5 5 6 6|"3Swords(500 pts)"|0    |
+        #1 = coin, 2 = Diamond, 3 = Monkey, 4 = Parrot, 5 = Sword, 6 = Skull
 
 
 
