@@ -1,5 +1,7 @@
 package project;
 
+import io.cucumber.java.sl.In;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -56,7 +58,6 @@ public class Game implements Serializable {
         if (isOfAKind(4,dieRoll)){
             sc = sc+200;
         }
-
         if (isOfAKind(5,dieRoll)){
             sc = sc + 500;
         }

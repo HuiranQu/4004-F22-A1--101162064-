@@ -6,4 +6,6 @@ Feature: All the player plays with exactly one reroll
     Then socre points with one reroll is <Score>
     Examples:
       |Row|roll           |Reroll_index|DiceRoll       | Card |Score|
-      |45 |6 4 4 4 4 5 5 5|"6","7","8" |6 4 4 4 4 6 6 5|"Coin"| 0   |
+      |46 |6 4 4 4 4 5 5 5|"6","7","8" |6 4 4 4 4 6 6 5|"Coin"| 0   |
+      |47 |6 6 4 4 4 4 5 5|"7","8"     |6 6 4 4 4 4 6 5|"Coin"| 0   |
+      |53 |3 3 4 4 5 5 6 6|"3","4"     |3 3 3 5 5 5 6 6|"Coin"|200  |
