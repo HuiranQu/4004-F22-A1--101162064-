@@ -25,3 +25,4 @@ Feature: All the tests plays with only one roll, no any reroll
       |103|3 3 4 1 1 2 2 2 |"Monkey&Parrot"|1100|
       |106|6 5 5 5 5 5 5 5 |"2Skulls"      |0   |
       |107|6 6 5 5 5 5 5 5 |"1Skull"       |0   |
+      |114|3 3 3 3 6 6 6 5|"2Swords(300 pts)"|0|
