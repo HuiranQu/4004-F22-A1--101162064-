@@ -28,3 +28,4 @@ Feature: All the tests plays with only one roll, no any reroll
       |114|3 3 3 3 6 6 6 5|"2Swords(300 pts)"|0|
       |116|3 3 5 5 5 6 6 6|"4Swords(1000 pts)"|0|
       |117|3 3 3 5 5 1 4 4|"2Swords(300 pts)"|500|
+      |120|3 3 3 5 5 5 5 6|"3Swords(500 pts)"|800  |
