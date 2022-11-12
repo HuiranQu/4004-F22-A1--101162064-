@@ -1,6 +1,6 @@
 Feature: For player get Treasure Chest as FC.
   Scenario: Row90_Test
-    Given Player1 roll dice, with "Treasure Chest" Card got 4 4 4 5 5 2 2 1 dice:
+    Given Player1 roll dice, with "Chest" Card got 4 4 4 5 5 2 2 1 dice:
     Then Player1 put 2 2 1 in treasure Chest
     And Player1 reroll left dice at "4","5" once
     When dice with first left reoll outcome is 4 4 4 4 4 0 0 0
