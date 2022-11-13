@@ -88,7 +88,6 @@ public class Island {
         re2[5] = int6;
         re2[6] = int7;
         re2[7] = int8;
-        re2 =game.reRollKeep(re1,reroll2);
     }
     @Then("player1 get {int} score, and player2 and player3 get {int} since they have no score.")
     public void player1_get_score_and_player2_and_player_get_since_they_have_no_score(Integer int1, Integer int2) {
