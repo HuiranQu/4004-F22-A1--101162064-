@@ -1,0 +1,81 @@
+package StepsDefination;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
+import project.Game;
+import project.Player;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Multi_player_Steps {
+    Player[] players = new Player[3];
+    Player pl1 = new Player("Player1");
+    Player pl2 = new Player("Player2");
+    Player pl3 = new Player("Player3");
+    Game game = new Game();
+    List<String> Fortune = new ArrayList<>(
+            List.of("Chest","Chest","Chest","Chest","Sorceress","Sorceress","Sorceress","Sorceress","Captain","Captain"
+                    ,"Captain","Captain","Monkey&Parrot","Monkey&Parrot","Monkey&Parrot","Monkey&Parrot","Diamond","Diamond","Diamond"
+                    ,"Diamond","Coin","Coin","Coin","Coin","2Skulls","2Skulls","1Skull","1Skull","1Skull","2Swords(300 pts)","2Swords(300 pts)"
+                    ,"3Swords(500 pts)","3Swords(500 pts)","4Swords(1000 pts)","4Swords(1000 pts)"));
+    String Card1 = game.getFortune();
+    String Card2 = game.getFortune();
+    String Card3 = game.getFortune();
+    int[] die1 = game.rollDice();
+    int[] die2 = game.rollDice();
+    int[] die3 = game.rollDice();
+
+    @Given("player1 rolls {int} {int} {int} {int} {int} {int} {int} {int} with {string} FC get {int} points")
+    public void player1_rolls_with_fc_get_points(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8, String string, Integer int9) {
+        players[0] = pl1;
+        players[1] = pl2;
+        players[2] = pl3;
+        Card1 = string;
+        die1[0] = int1;
+        die1[1] = int2;
+        die1[2] = int3;
+        die1[3] = int4;
+        die1[4] = int5;
+        die1[5] = int6;
+        die1[6] = int7;
+        die1[7] = int8;
+        pl1.scoreRound(0,die1,Card1);
+        Assertions.assertEquals(int9,pl1.getScore());
+    }
+    @When("player2 rolls {int} {int} {int} {int} {int} {int} {int} {int} with {string} FC get {int} points")
+    public void player2_rolls_with_fc_get_points(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8, String string, Integer int9) {
+        Card2 = string;
+        die2[0] = int1;
+        die2[1] = int2;
+        die2[2] = int3;
+        die2[3] = int4;
+        die2[4] = int5;
+        die2[5] = int6;
+        die2[6] = int7;
+        die2[7] = int8;
+        pl2.scoreRound(0,die2,Card2);
+        Assertions.assertEquals(int9,pl2.getScore());
+    }
+    @When("player3 rolls {int} {int} {int} {int} {int} {int} {int} {int} with {string} FC get {int} point")
+    public void player3_rolls_with_fc_get_point(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8, String string, Integer int9) {
+        Card3 = string;
+        die3[0] = int1;
+        die3[1] = int2;
+        die3[2] = int3;
+        die3[3] = int4;
+        die3[4] = int5;
+        die3[5] = int6;
+        die3[6] = int7;
+        die3[7] = int8;
+        pl2.scoreRound(0,die3,Card2);
+        Assertions.assertEquals(int9,pl3.getScore());
+    }
+    @Then("game stops and {string} is the winner")
+    public void game_stops_and_is_the_winner(String string) {
+        Assertions.assertEquals(string,game.getWinner(players).getName());
+        System.out.println("The winner is: "+game.getWinner(players).getName());
+    }
+}
