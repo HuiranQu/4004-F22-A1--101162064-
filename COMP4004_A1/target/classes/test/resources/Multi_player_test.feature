@@ -19,3 +19,10 @@ Feature: Multi_players tests
         And player3 rolls 6 5 5 5 5 5 5 5 with "2Skulls" FC get 0 point
         And player1 rolls 5 5 5 5 5 5 5 5 with "Captain" FC get 9000 points
         Then game stops and "Player1" is the winner
+
+      Scenario: Row150_Test
+          Given player1 rolls 5 5 5 5 5 5 6 6 with "Coin" FC get 1100 points
+          When player2 rolls 6 6 6 6 6 6 6 1 with "Sorceress"
+          And reroll dice at "1" get a 4
+          And reroll dice at "1" and "8" to get 6 6
+          Then player1 has 300 points and player2 and player3 have 0 point.
