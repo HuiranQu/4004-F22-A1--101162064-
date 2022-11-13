@@ -24,9 +24,14 @@ public class Game implements Serializable {
 
     public int[] reRollKeep(int[] dieRoll, String[] keep) {
         ArrayList<Integer> rolls = new ArrayList<Integer>();
+        int rem;
         for (String s : keep) {
-            int rem = Integer.parseInt(s) - 1;
-            rolls.add(rem);
+            try {
+                rem = Integer.parseInt(s) - 1;
+                rolls.add(rem);
+            }catch (NumberFormatException e){
+                rem = 0;
+            }
         }
         for (int s : rolls) {
             dieRoll = rerollDice(dieRoll, (s));
