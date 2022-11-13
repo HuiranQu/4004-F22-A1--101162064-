@@ -41,12 +41,14 @@ public class OneReroll_Steps {
         reroll[1] = string2;
         reroll[2] = string3;
         reroll[3] = string4;
+        re =game.reRollKeep(die,reroll);
     }
     @Then("I reroll dice at {string},{string},{string} once")
     public void i_reroll_dice_at_once(String string, String string2, String string3) {
         reroll[0] = string;
         reroll[1] = string2;
         reroll[2] = string3;
+        re =game.reRollKeep(die,reroll);
     }
     @Then("I reroll dice at {string},{string} once")
     public void i_reroll_dice_at_once(String string, String string2) {
