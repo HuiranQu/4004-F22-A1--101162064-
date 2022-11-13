@@ -48,6 +48,7 @@ public class Island {
         reroll1[0] = string;
         reroll1[1] = string2;
         reroll1[2] = string3;
+        re1 =game.reRollKeep(die,reroll1);
     }
     @Then("player1 reroll dice at {string},{string},{string},{string},{string}")
     public void player1_reroll_dice_at(String string, String string2, String string3, String string4, String string5) {
@@ -56,7 +57,7 @@ public class Island {
         reroll1[2] = string3;
         reroll1[3] = string4;
         reroll1[4] = string5;
-        int[] re =game.reRollKeep(die,reroll1);
+        re1 =game.reRollKeep(die,reroll1);
     }
     @When("dice with the reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_the_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
@@ -75,6 +76,7 @@ public class Island {
         reroll2[1] = string2;
         reroll2[2] = string3;
         reroll2[3] = string4;
+        re2 =game.reRollKeep(re1,reroll2);
     }
     @When("dice with second rerooll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_second_rerooll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
@@ -86,6 +88,7 @@ public class Island {
         re2[5] = int6;
         re2[6] = int7;
         re2[7] = int8;
+        re2 =game.reRollKeep(re1,reroll2);
     }
     @Then("player1 get {int} score, and player2 and player3 get {int} since they have no score.")
     public void player1_get_score_and_player2_and_player_get_since_they_have_no_score(Integer int1, Integer int2) {
