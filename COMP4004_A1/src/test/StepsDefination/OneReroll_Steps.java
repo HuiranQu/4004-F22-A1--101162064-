@@ -52,6 +52,7 @@ public class OneReroll_Steps {
     public void i_reroll_dice_at_once(String string, String string2) {
         reroll[0] = string;
         reroll[1] = string2;
+        re =game.reRollKeep(die,reroll);
     }
     @When("dice with one reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_one_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
@@ -63,6 +64,7 @@ public class OneReroll_Steps {
         re[5] = int6;
         re[6] = int7;
         re[7] = int8;
+
     }
 
 
