@@ -50,12 +50,14 @@ public class Chest_Steps {
     public void player1_reroll_left_dice_at_once(String string, String string2) {
         reroll1[0] = string;
         reroll1[1] = string2;
+        re1 =game.reRollKeep(die,reroll1);
     }
     @Then("Player1 reroll left dice at {string},{string},{string} once")
     public void player1_reroll_left_dice_at_once(String string, String string2, String string3) {
         reroll1[0] = string;
         reroll1[1] = string2;
         reroll1[2] = string3;
+        re1 =game.reRollKeep(die,reroll1);
     }
     @When("dice with first left reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_first_left_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
@@ -88,11 +90,13 @@ public class Chest_Steps {
         reroll2[0] = string;
         reroll2[1] = string2;
         reroll2[2] = string3;
+        re2 =game.reRollKeep(re1,reroll2);
     }
     @Then("Player1 reroll left dice at {string},{string} twice")
     public void player1_reroll_left_dice_at_twice(String string, String string2) {
         reroll2[0] = string;
         reroll2[1] = string2;
+        re2 =game.reRollKeep(re1,reroll2);
     }
     @When("dice with second left reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_second_left_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
