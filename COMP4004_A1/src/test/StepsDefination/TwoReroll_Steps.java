@@ -43,15 +43,18 @@ public class TwoReroll_Steps {
         reroll1[0] = string;
         reroll1[1] = string2;
         reroll1[2] = string3;
+        re1 =game.reRollKeep(die,reroll1);
     }
     @Then("Player1 reroll dice at {string},{string} once")
     public void player1_reroll_dice_at_once(String string, String string2) {
         reroll1[0] = string;
         reroll1[1] = string2;
+        re1 =game.reRollKeep(die,reroll1);
     }
     @Then("Player1 reroll dice at {string} once")
     public void player1_reroll_dice_at_once(String string) {
         reroll1[0] = string;
+        re1 =game.reRollKeep(die,reroll1);
     }
     @When("dice with first reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_first_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
@@ -69,16 +72,20 @@ public class TwoReroll_Steps {
     public void i_reroll_dice_at_twice(String string, String string2) {
         reroll2[0] = string;
         reroll2[1] = string2;
+        re2 =game.reRollKeep(re1,reroll2);
     }
     @Then("I reroll dice at {string},{string},{string} twice")
     public void i_reroll_dice_at_twice(String string, String string2, String string3) {
         reroll2[0] = string;
         reroll2[1] = string2;
         reroll2[2] = string3;
+        re2 =game.reRollKeep(re1,reroll2);
     }
     @Then("I reroll dice at {string} twice")
     public void i_reroll_dice_at_twice(String string) {
+
         reroll2[0] = string;
+        re2 =game.reRollKeep(re1,reroll2);
     }
     @When("dice with second reoll outcome is {int} {int} {int} {int} {int} {int} {int} {int}")
     public void dice_with_second_reoll_outcome_is(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8) {
