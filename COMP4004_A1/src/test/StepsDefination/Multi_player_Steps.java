@@ -70,8 +70,61 @@ public class Multi_player_Steps {
         die3[5] = int6;
         die3[6] = int7;
         die3[7] = int8;
-        pl2.scoreRound(0,die3,Card2);
+        pl3.scoreRound(0,die3,Card3);
         Assertions.assertEquals(int9,pl3.getScore());
+    }
+    @When("player3 rolls {int} {int} {int} {int} {int} {int} {int} {int} with {string} FC get {int} points")
+    public void player3_rolls_with_fc_get_points(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8, String string, Integer int9) {
+        Card3 = string;
+        die3[0] = int1;
+        die3[1] = int2;
+        die3[2] = int3;
+        die3[3] = int4;
+        die3[4] = int5;
+        die3[5] = int6;
+        die3[6] = int7;
+        die3[7] = int8;
+        pl3.island(players,die3,Card3);
+        Assertions.assertEquals(int9,pl3.getScore());
+    }
+    @Then("player1 rolls {int} {int} {int} {int} {int} {int} {int} {int} with {string} FC reach {int} points")
+    public void player1_rolls_with_fc_get_points_and_reach_points(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8, String string, Integer int9) {
+        Card1 = string;
+        die1[0] = int1;
+        die1[1] = int2;
+        die1[2] = int3;
+        die1[3] = int4;
+        die1[4] = int5;
+        die1[5] = int6;
+        die1[6] = int7;
+        die1[7] = int8;
+        pl1.scoreRound(1,die1,Card1);
+        Assertions.assertEquals(int9,pl1.getScore()+200);
+    }
+    @Then("player2 rolls {int} {int} {int} {int} {int} {int} {int} {int} with {string} FC and player3 rolls {int} {int} {int} {int} {int} {int} {int} {int} with {string} FC, both score {int} point")
+    public void player2_rolls_with_fc_and_player3_rolls_with_fc_both_score_point(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7, Integer int8, String string, Integer int9, Integer int10, Integer int11, Integer int12, Integer int13, Integer int14, Integer int15, Integer int16, String string2, Integer int17) {
+        Card2 = string;
+        die2[0] = int1;
+        die2[1] = int2;
+        die2[2] = int3;
+        die2[3] = int4;
+        die2[4] = int5;
+        die2[5] = int6;
+        die2[6] = int7;
+        die2[7] = int8;
+        pl2.scoreRound(1,die2,Card2);
+        Assertions.assertEquals(int17,pl2.getScore());
+        Card3 = string2;
+        die3[0] = int9;
+        die3[1] = int10;
+        die3[2] = int11;
+        die3[3] = int12;
+        die3[4] = int13;
+        die3[5] = int14;
+        die3[6] = int15;
+        die3[7] = int16;
+        pl3.scoreRound(0,die3,Card3);
+        Assertions.assertEquals(int17,pl3.getScore());
     }
     @Then("game stops and {string} is the winner")
     public void game_stops_and_is_the_winner(String string) {
