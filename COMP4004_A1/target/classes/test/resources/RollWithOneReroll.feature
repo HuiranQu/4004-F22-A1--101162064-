@@ -1,5 +1,5 @@
 Feature: All the player plays with exactly one reroll
-  Scenario Outline: Roroll once
+  Scenario Outline: Row<Row>_Test
     Given I roll a dice, with <Card> got <roll>:
     Then I reroll dice at <Reroll_index> once
     When dice with one reoll outcome is <DiceRoll>

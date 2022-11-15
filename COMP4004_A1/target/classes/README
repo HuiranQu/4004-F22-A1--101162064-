@@ -1,0 +1,71 @@
+Commit description:
+    Scenario Outline: Roll without any reroll contains: row 45 52 54 55 56 57 62 63 64 65 66 72 82 84 97 98 99 103 106 107 114 116 117 120 123.
+        row45_Test : The A-test of row 45 on the grid.
+        row52_Test : The A-test of row 52 on the grid.
+        row54_Test : The A-test of row 54 on the grid.
+        row55_Test : The A-test of row 55 on the grid.
+        row56_Test : The A-test of row 56 on the grid.
+        row57_Test : The A-test of row 57 on the grid.
+        row62_Test : The A-test of row 62 on the grid.
+        row63_Test : The A-test of row 63 on the grid.
+        row64_Test : The A-test of row 64 on the grid.
+        row65_Test : The A-test of row 65 on the grid.
+        row66_Test : The A-test of row 66 on the grid.
+        row72_Test : The A-test of row 72 on the grid.
+        row82_Test : The A-test of row 82 on the grid.
+        row84_Test : The A-test of row 84 on the grid.
+        row97_Test : The A-test of row 97 on the grid.
+        row98_Test : The A-test of row 98 on the grid.
+        row99_Test : The A-test of row 99 on the grid.
+        row103_Test : The A-test of row 103 on the grid.
+        row106_Test : The A-test of row 106 on the grid.
+        row107_Test : The A-test of row 107 on the grid.
+        row114_Test : The A-test of row 114 on the grid.
+        row116_Test : The A-test of row 116 on the grid.
+        row117_Test : The A-test of row 117 on the grid.
+        row120_Test : The A-test of row 120 on the grid.
+        row123_Test : The A-test of row 123  on the grid.
+
+    Scenario Outline: Roroll once contains: Row 46 47 53 58 59 67 68 69 70 71 83 102 115 119 122
+        row46_Test : The A-test of row 46 on the grid.
+        row47_Test : The A-test of row 47 on the grid.
+        row53_Test : The A-test of row 53 on the grid.
+        row58_Test : The A-test of row 58 on the grid.
+        row59_Test : The A-test of row 59 on the grid.
+        row67_Test : The A-test of row 67 on the grid.
+        row68_Test : The A-test of row 68 on the grid.
+        row69_Test : The A-test of row 69 on the grid.
+        row70_Test : The A-test of row 70 on the grid.
+        row71_Test : The A-test of row 71 on the grid.
+        row83_Test : The A-test of row 83 on the grid.
+        row102_Test : The A-test of row 102 on the grid.
+        row115_Test : The A-test of row 115 on the grid.
+        row119_Test : The A-test of row 119 on the grid.
+        row122_Test : The A-test of row 122 on the grid.
+
+    Scenario Outline: Roroll twice contains: Row 49 50 60 77 78 79 126
+        row49_Test : The A-test of row 49 on the grid.
+        row50_Test : The A-test of row 50 on the grid.
+        row60_Test : The A-test of row 60 on the grid.
+        row77_Test : The A-test of row 77 on the grid.
+        row78_Test : The A-test of row 78 on the grid.
+        row79_Test : The A-test of row 79 on the grid.
+        row126_Test : The A-test of row 126 on the grid.
+
+    Scenario: Row109_Test: The A-test of row 109 on the grid.
+    Scenario: Row110_Test: The A-test of row 110 on the grid.
+    Scenario: Row111_Test: The A-test of row 111 on the grid.
+    Scenario: Row90_Test: The A-test of row 90 on the grid.
+    Scenario: Row94_Test: The A-test of row 94 on the grid.
+    Scenario: Row132_Test: The A-test of row 132 on the grid.
+    Scenario: Row140_Test: The A-test of row 140 on the grid.
+    Scenario: Row145_Test: The A-test of row 145 on the grid.
+    Scenario: Row150_Test: The A-test of row 150 on the grid.
+
+    StepsDefination:
+        Chest_Steps -> Treasure.feature
+        Island -> Island.feature
+        Multi_player_Steps -> Multi_player_test.feature
+        Onereroll_Steps -> RollWithOneReroll.feature
+        TwoReroll_Steps -> RollWithTwoReroll.feature
+        WithoutReroll_Steps -> Only_With_FirstRoll.feature
